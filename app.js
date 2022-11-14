@@ -1,13 +1,9 @@
 const exspress = require("express");
-const morgan = require("morgan");
 const mongoose = require("mongoose");
 const app = exspress();
 const authRoutes = require("./routes/authRoutes");
 const cookieParser = require("cookie-parser");
 const { requireAuth, checkUser } = require("./middleware/authmiddleware");
-
-const passport = require("passport");
-const GoogleStrategy = require("passport-google-oauth20");
 
 //middleware
 app.use(exspress.static("assets"));
