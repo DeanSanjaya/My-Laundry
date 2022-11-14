@@ -44,9 +44,20 @@
         </li>
       </ul>
       <ul class="navbar-nav ms-auto">
+        <% if (user) { %>
         <li class="nav-item">
-          <a class="nav-link fw-semibold" style="color: black" href="/logout"
+          <a
+            class="nav-link btn btn-info rounded-pill fw-semibold"
+            style="color: black"
+            type="button"
+            href="/logout"
             >Logout</a
+          >
+        </li>
+        <% } else { %>
+        <li class="nav-item">
+          <a class="nav-link fw-semibold" style="color: black" href="/login"
+            >Login</a
           >
         </li>
         <li class="nav-item">
@@ -54,10 +65,11 @@
             class="nav-link btn btn-info rounded-pill fw-semibold"
             style="color: black"
             type="button"
-            href="/login"
-            >Login</a
+            href="/signup"
+            >Sign Up</a
           >
         </li>
+        <% } %>
       </ul>
     </div>
   </div>

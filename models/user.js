@@ -13,7 +13,7 @@ const userSchema = new mongoose.Schema({
   password: {
     type: String,
     require: [true, "Please enter an password"],
-    minLength: [6, "Minimum password length is 6 characters"],
+    minlength: [6, "Minimum password length is 6 characters"],
   },
 });
 
@@ -23,7 +23,7 @@ userSchema.post("save", function (doc, next) {
   next();
 });
 
-//fire a function before doc saved to db
+//hash password before save to db
 userSchema.pre("save", async function (next) {
   const salt = await bcrypt.genSalt();
   this.password = await bcrypt.hash(this.password, salt);

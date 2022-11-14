@@ -7,18 +7,18 @@ const handleErrors = (err) => {
   let errors = { email: "", password: "" };
 
   // incorrect email
-  if (err.message === "incorrect email") {
+  if (err.message === "Incorrect email") {
     errors.email = "That email is not registered";
   }
 
   // incorrect password
-  if (err.message === "incorrect password") {
+  if (err.message === "Incorrect password") {
     errors.password = "That password is incorrect";
   }
 
   //duplicate error code
   if (err.code === 11000) {
-    errors.email = "email is already registered";
+    errors.email = "Email is already registered";
     return errors;
   }
   let errErrors = err.errors;
@@ -36,10 +36,11 @@ const handleErrors = (err) => {
 // create json web token
 const maxAge = 3 * 24 * 60 * 60;
 const createToken = (id) => {
-  return jwt.sign({ id }, "my laundry", {
+  return jwt.sign({ id }, "my laundry user secret", {
     expiresIn: maxAge,
   });
 };
+
 module.exports.signup_get = (req, res) => {
   res.render("signup", { title: "Sign Up" });
 };
@@ -53,9 +54,9 @@ module.exports.signup_post = async (req, res) => {
 
   try {
     const user = await User.create({ email, password });
-    const token = createToken(user.id);
+    const token = createToken(user._id);
     res.cookie("jwt", token, { httpOnly: true, maxAge: maxAge * 1000 });
-    res.status(201).json({ user: user.id });
+    res.status(201).json({ user: user._id });
   } catch (err) {
     const errors = handleErrors(err);
     res.status(400).json({ errors });
@@ -67,6 +68,8 @@ module.exports.login_post = async (req, res) => {
 
   try {
     const user = await User.login(email, password);
+    const token = createToken(user._id);
+    res.cookie("jwt", token, { httpOnly: true, maxAge: maxAge * 1000 });
     res.status(200).json({ user: user._id });
   } catch (err) {
     const errors = handleErrors(err);
@@ -76,5 +79,5 @@ module.exports.login_post = async (req, res) => {
 
 module.exports.logout_get = (req, res) => {
   res.cookie("jwt", "", { maxAge: 1 });
-  res.redirect("");
+  res.redirect("/");
 };

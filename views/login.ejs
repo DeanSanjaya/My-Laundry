@@ -30,6 +30,7 @@
                 required
               />
             </div>
+            <div class="email error"></div>
 
             <div class="field input-field">
               <input
@@ -41,6 +42,7 @@
               />
               <i class="bx bx-hide eye-icon"></i>
             </div>
+            <div class="pswd error"></div>
 
             <div class="form-link">
               <a href="#" class="forgot-pass">Forgot Password?</a>
@@ -78,9 +80,15 @@
     <script src="js/login&signup.js"></script>
     <script>
       const form = document.querySelector("form");
+      const emailError = document.querySelector(".email.error");
+      const passwordError = document.querySelector(".pswd.error");
 
       form.addEventListener("submit", async (e) => {
         e.preventDefault();
+        // reset errors
+        emailError.textContent = "";
+        passwordError.textContent = "";
+
         // get values
         const email = form.email.value;
         const password = form.password.value;
@@ -93,6 +101,10 @@
           });
           const data = await res.json();
           console.log(data);
+          if (data.errors) {
+            emailError.textContent = data.errors.email;
+            passwordError.textContent = data.errors.password;
+          }
           if (data.user) {
             location.assign("/");
           }
