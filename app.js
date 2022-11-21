@@ -18,7 +18,7 @@ app.set("view engine", "ejs");
 
 //connect to mongoDB
 const dbURI =
-  "mongodb+srv://admin1:admin123@mylaundry.4krhzfc.mongodb.net/?retryWrites=true&w=majority";
+  "mongodb+srv://admin1:admin123@mylaundry.4krhzfc.mongodb.net/myLaundry?retryWrites=true&w=majority";
 const database = (module.exports = () => {
   const connectionParams = {
     useNewUrlParser: true,
