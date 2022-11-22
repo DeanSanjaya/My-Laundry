@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/transaksi.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <title>Transaksi</title>
   </head>
@@ -48,31 +49,68 @@
     </nav>
     <!-- Akhir Navbar-->
 
-    <div class="container mt-3">
-        <h1 class="text-center">Input Transaksi</h1>
+    <!-- Awal Back-->
+    <div class="previous">
+      <a href="transaksi.html" class="kembali text-white ml-5">&#8249; BACK</a>
+    </div>
+    <!--Akhir Back-->
+
+    <!-- Awal Form-->
+    <div class="container pt-5">
+        <h1 class="text-center mb-5">Input Transaksi</h1>
         <form>
           <div class="row">
-            <div class="col-xs-6">
-                <label for="Nama">Nama</label>
-                <input type="text" class="form-control" placeholder="Enter email" name="email">
+            <div class="col-lg-6 mt-3">
+                <label for="Nama" class="form-label">Nama :</label>
+                <input type="text" class="form-control">
             </div>
-            <div class="col-xs-6">
-                <label for="Paket">Paket</label>
-                <input type="text" class="form-control" placeholder="Enter email" name="email">
+            <div class="col-lg-6 mt-3">
+              <label for="Tanggal Pesan" class="form-label">Tanggal Pesan :</label>
+              <input type="text" class="form-control" placeholder="dd/mm/yyyy">
             </div>
-            <div class="col-xs-6">
-                <input type="password" class="form-control" placeholder="Enter password" name="pswd">
+            <div class="col-lg-6 mt-3">
+                <label for="Paket" class="form-label">Paket :</label>
+                <select class="form-select">
+                  <option>Paket cuci basah, 1 hari</option>
+                  <option>Paket cuci kering, 6 jam</option>
+                  <option>Paket cuci kering + setrika, 2 hari</option>
+                  <option>Paket satuan</option>
+                </select>
             </div>
+            <div class="col-lg-6 mt-3">
+              <label for="Waktu Pesan" class="form-label">Waktu Pesan :</label>
+              <input type="text" class="form-control" placeholder="10:00">
+            </div>
+            <div class="col-lg-6 mt-3">
+              <label for="Berat" class="form-label">Berat :</label>
+              <input type="text" class="form-control" placeholder="kg">
+            </div>
+            <div class="col-lg-6 mt-3">
+              <label for="Tanggal Pengambilan" class="form-label">Tanggal Pengambilan :</label>
+              <input type="text" class="form-control" placeholder="dd/mm/yyyy">
+            </div>
+            <div class="col-lg-6 mt-3">
+              <label for="Harga" class="form-label">Harga :</label>
+              <input type="text" class="form-control" placeholder="Rp" disabled>
+            </div>
+            <div class="col-lg-6 mt-3">
+              <label for="Waktu Pengambilan" class="form-label">Waktu Pengambilan :</label>
+              <input type="text" class="form-control" placeholder="10:00">
+            </div>
+          </div>
+          <div class="d-grid gap-2 col-6 mx-auto">
+          <button type="submit" class="btn btn-info text-white mt-5">Submit</button>
           </div>
         </form>
       </div>
+      <!-- Akhir Form-->
 
-    <!-- Awal Footer-->
-    <div class="footer pt-5 mt-5 bg-info">
-        <div class="container pt-3 mt-3">
-        </div>
-    </div>
-    <!-- Akhir Footer-->
+      <!-- Awal Footer-->
+      <div class="footer bg-info">
+          <div class="container">
+          </div>
+      </div>
+      <!-- Akhir Footer-->
 
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   </body>
