@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/transaksi.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <title>Transaksi</title>
+  </head>
+  <body>
+    <!-- Awal Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img src="images/logo.png" width="40" class="me-2" />
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse text-right" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link fw-semibold" style="color: black" href="#">Why Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-semibold" style="color: black" href="#">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-semibold" style="color: black" href="#">Reviews</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-semibold" style="color: black" href="#">Transaksi</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-semibold" style="color: black" href="#">Income</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link fw-semibold" style="color: black" href="#">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btn btn-info rounded-pill fw-semibold" style="color: black" type="button" href="#">Sign Up</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Akhir Navbar-->
+
+    <!-- Awal Back-->
+    <div class="previous">
+      <a href="transaksi.html" class="kembali text-white ml-5">&#8249; BACK</a>
+    </div>
+    <!--Akhir Back-->
+
+    <!-- Awal Form-->
+    <div class="container pt-5">
+        <h1 class="text-center mb-5">Input Transaksi</h1>
+        <form>
+          <div class="row">
+            <div class="col-lg-6 mt-3">
+                <label for="Nama" class="form-label">Nama :</label>
+                <input type="text" class="form-control">
+            </div>
+            <div class="col-lg-6 mt-3">
+              <label for="Tanggal Pesan" class="form-label">Tanggal Pesan :</label>
+              <input type="text" class="form-control" placeholder="dd/mm/yyyy">
+            </div>
+            <div class="col-lg-6 mt-3">
+                <label for="Paket" class="form-label">Paket :</label>
+                <select class="form-select">
+                  <option>Paket cuci basah, 1 hari</option>
+                  <option>Paket cuci kering, 6 jam</option>
+                  <option>Paket cuci kering + setrika, 2 hari</option>
+                  <option>Paket satuan</option>
+                </select>
+            </div>
+            <div class="col-lg-6 mt-3">
+              <label for="Waktu Pesan" class="form-label">Waktu Pesan :</label>
+              <input type="text" class="form-control" placeholder="10:00">
+            </div>
+            <div class="col-lg-6 mt-3">
+              <label for="Berat" class="form-label">Berat :</label>
+              <input type="text" class="form-control" placeholder="kg">
+            </div>
+            <div class="col-lg-6 mt-3">
+              <label for="Tanggal Pengambilan" class="form-label">Tanggal Pengambilan :</label>
+              <input type="text" class="form-control" placeholder="dd/mm/yyyy">
+            </div>
+            <div class="col-lg-6 mt-3">
+              <label for="Harga" class="form-label">Harga :</label>
+              <input type="text" class="form-control" placeholder="Rp" disabled>
+            </div>
+            <div class="col-lg-6 mt-3">
+              <label for="Waktu Pengambilan" class="form-label">Waktu Pengambilan :</label>
+              <input type="text" class="form-control" placeholder="10:00">
+            </div>
+          </div>
+          <div class="d-grid gap-2 col-6 mx-auto">
+          <button type="submit" class="btn btn-info text-white mt-5">Submit</button>
+          </div>
+        </form>
+      </div>
+      <!-- Akhir Form-->
+
+      <!-- Awal Footer-->
+      <div class="footer bg-info">
+          <div class="container">
+          </div>
+      </div>
+      <!-- Akhir Footer-->
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+</html>
