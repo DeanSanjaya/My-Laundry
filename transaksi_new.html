@@ -71,36 +71,58 @@
             <div class="col-lg-6 mt-3">
                 <label for="Paket" class="form-label">Paket :</label>
                 <select class="form-select">
-                  <option>Paket cuci basah, 1 hari</option>
-                  <option>Paket cuci kering, 6 jam</option>
-                  <option>Paket cuci kering + setrika, 2 hari</option>
-                  <option>Paket satuan</option>
+                  <option selected hidden>Pilih Paket</option>
+                  <optgroup label="Kiloan">
+                  <option>Cuci Basah</option>
+                  <option>Cuci Kering</option>
+                  <option>Cuci Kering Lipat</option>
+                  <option>Cuci Kering Setrika</option>
+                  <option>Setrika</option>
+                  </optgroup>
+                  <optgroup label="Satuan">
+                  <option>Gorden Tipis</option>
+                  <option>Gorden Tebal</option>
+                  <option>Selimut</option>
+                  <option>Bed Cover</option>
+                  <option>Jas</option>
+                  </optgroup>
                 </select>
             </div>
             <div class="col-lg-6 mt-3">
-              <label for="Waktu Pesan" class="form-label">Waktu Pesan :</label>
-              <input type="text" class="form-control" placeholder="10:00">
+              <label for="Paket" class="form-label">Durasi :</label>
+              <select class="form-select">
+                <option selected hidden>Pilih Durasi</option>
+                <option>6 jam</option>
+                <option>1 hari</option>
+                <option>2 hari</option>
+                <option></option>
+              </select>
             </div>
             <div class="col-lg-6 mt-3">
               <label for="Berat" class="form-label">Berat :</label>
               <input type="text" class="form-control" placeholder="kg">
             </div>
             <div class="col-lg-6 mt-3">
-              <label for="Tanggal Pengambilan" class="form-label">Tanggal Pengambilan :</label>
-              <input type="text" class="form-control" placeholder="dd/mm/yyyy">
+              <label for="Waktu Pesan" class="form-label">Waktu Pesan :</label>
+              <input type="text" class="form-control" placeholder="10:00">
             </div>
             <div class="col-lg-6 mt-3">
               <label for="Harga" class="form-label">Harga :</label>
               <input type="text" class="form-control" placeholder="Rp" disabled>
             </div>
             <div class="col-lg-6 mt-3">
+              <label for="Tanggal Pengambilan" class="form-label">Tanggal Pengambilan :</label>
+              <input type="text" class="form-control" placeholder="dd/mm/yyyy">
+            </div>
+            <div class="col-lg-6 d-grid pt-3 pb-5 mt-2 mb-5">
+              <button type="submit" class="btn btn-info text-white mt-4">Submit</button>
+              </div>
+            <div class="col-lg-6 pb-5 mt-3 mb-5">
               <label for="Waktu Pengambilan" class="form-label">Waktu Pengambilan :</label>
               <input type="text" class="form-control" placeholder="10:00">
             </div>
           </div>
-          <div class="d-grid gap-2 col-6 mx-auto pt-5 pb-5">
-          <button type="submit" class="btn btn-info text-white mt-5 mb-5">Submit</button>
-          </div>
+          
         </form>
       </div>
       <!-- Akhir Form-->
