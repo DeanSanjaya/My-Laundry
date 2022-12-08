@@ -1,6 +1,7 @@
 const exspress = require("express");
 const mongoose = require("mongoose");
 const app = exspress();
+const allRoutes = require("./routes/allRoutes");
 const authRoutes = require("./routes/authRoutes");
 const cookieParser = require("cookie-parser");
 const { requireAuth, checkUser } = require("./middleware/authmiddleware");
@@ -8,10 +9,8 @@ const { requireAuth, checkUser } = require("./middleware/authmiddleware");
 //middleware
 app.use(exspress.static("assets"));
 app.use(exspress.json());
+app.use(exspress.urlencoded());
 app.use(cookieParser());
-
-//user authRoutes
-app.use(authRoutes);
 
 //view engine
 app.set("view engine", "ejs");
@@ -35,33 +34,18 @@ const database = (module.exports = () => {
 
 database();
 
-app.listen(3000, () => {
-  console.log("Server is runnning on port 3000");
-});
-
 //routers
 //check user on all get request
 app.get("*", checkUser);
-//home
-app.get("/", (req, res) => {
-  res.render("homepage", { title: "Homepage" });
-});
 
-//home redirect
-app.get("/home", (req, res) => {
-  res.redirect("/");
-});
+//user authRoutes
+app.use(authRoutes);
 
-app.get("/home/createHomeDesc", (req, res) => {
-  res.render("createHomeDesc", requireAuth, { title: "Create Homepage Desc" });
-});
+//allRoutes
+app.use(allRoutes);
 
-app.get("/transaction", (req, res) => {
-  res.render("transaction", requireAuth, { title: "Transaction" });
-});
-
-app.get("/income", (req, res) => {
-  res.render("income", requireAuth, { title: "Income" });
+app.listen(3000, () => {
+  console.log("Server is runnning on port 3000");
 });
 
 // login and signup
