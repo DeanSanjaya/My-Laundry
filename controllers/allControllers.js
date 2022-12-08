@@ -117,6 +117,7 @@ function checkTime() {
 }
 
 module.exports.transaction_add = async (req, res) => {
+  //Default waktu dan tanggal pesan
   if (Object.keys(req.body.tglPesan).length === 0) {
     req.body.tglPesan = dateFormat;
   }
@@ -129,6 +130,7 @@ module.exports.transaction_add = async (req, res) => {
     req.body.paket = "Paket cucian basah";
   }
 
+  //Default waktu dan tanggal pengambilan
   const checkDurasi = parseInt(req.body.durasi);
   if (
     checkDurasi == 6 &&
@@ -147,27 +149,90 @@ module.exports.transaction_add = async (req, res) => {
     req.body.tglPengambilan = req.body.tglPengambilan;
     req.body.waktuPengambilan = req.body.waktuPengambilan;
   }
-  // console.log(req.body.waktuPengambilan);
-  // console.log(Transaksi(req.body));
 
-  // res.redirect("/transaction");
-
-  // try {
-  //   let schema = await new Transaksi({
-  //     name: req.body.name,
-  //   });
-  //   console.log(schema);
-  //   res.redirect("/transaction");
-  // } catch (error) {
-  //   return res.render("error", { errorMessage: error.message });
-  // }
-
-  console.log(Transaksi(req.body));
-
+  //Default pembayaran
+  const paket = req.body.paket;
+  const berat = req.body.berat;
+  const meterOrbuah = req.body.meterOrbuah;
+  if (checkDurasi == 6) {
+    if (paket == "Cuci Basah") {
+      req.body.harga = berat * 9000;
+    } else if (paket == "Cuci Kering") {
+      req.body.harga = berat * 10000;
+    } else if (paket == "Cuci Kering Lipat") {
+      req.body.harga = berat * 12000;
+    } else if (paket == "Cuci Kering Setrika") {
+      req.body.harga = berat * 14000;
+    } else if (paket == "Setrika") {
+      req.body.harga = berat * 11000;
+    } else if (paket == "Gorden Tipis") {
+      req.body.harga = meterOrbuah * 11000;
+    } else if (paket == "Gorden Tebal") {
+      req.body.harga = meterOrbuah * 16000;
+    } else if (paket == "Selimut") {
+      req.body.harga = meterOrbuah * 40000;
+    } else if (paket == "Bed Cover") {
+      req.body.harga = meterOrbuah * 50000;
+    } else if (paket == "Jas") {
+      req.body.harga = meterOrbuah * 55000;
+    } else {
+      console.log("Did not choose anything");
+    }
+  } else if (checkDurasi == 1) {
+    if (paket == "Cuci Basah") {
+      req.body.harga = berat * 7000;
+    } else if (paket == "Cuci Kering") {
+      req.body.harga = berat * 8000;
+    } else if (paket == "Cuci Kering Lipat") {
+      req.body.harga = berat * 9500;
+    } else if (paket == "Cuci Kering Setrika") {
+      req.body.harga = berat * 11000;
+    } else if (paket == "Setrika") {
+      req.body.harga = berat * 9000;
+    } else if (paket == "Gorden Tipis") {
+      req.body.harga = meterOrbuah * 9000;
+    } else if (paket == "Gorden Tebal") {
+      req.body.harga = meterOrbuah * 14000;
+    } else if (paket == "Selimut") {
+      req.body.harga = meterOrbuah * 30000;
+    } else if (paket == "Bed Cover") {
+      req.body.harga = meterOrbuah * 40000;
+    } else if (paket == "Jas") {
+      req.body.harga = meterOrbuah * 45000;
+    } else {
+      console.log("Did not choose anything");
+    }
+  } else if (checkDurasi == 2) {
+    if (paket == "Cuci Basah") {
+      req.body.harga = berat * 5000;
+    } else if (paket == "Cuci Kering") {
+      req.body.harga = berat * 6000;
+    } else if (paket == "Cuci Kering Lipat") {
+      req.body.harga = berat * 7000;
+    } else if (paket == "Cuci Kering Setrika") {
+      req.body.harga = berat * 8500;
+    } else if (paket == "Setrika") {
+      req.body.harga = berat * 7500;
+    } else if (paket == "Gorden Tipis") {
+      req.body.harga = meterOrbuah * 7500;
+    } else if (paket == "Gorden Tebal") {
+      req.body.harga = meterOrbuah * 12500;
+    } else if (paket == "Selimut") {
+      req.body.harga = meterOrbuah * 20000;
+    } else if (paket == "Bed Cover") {
+      req.body.harga = meterOrbuah * 30000;
+    } else if (paket == "Jas") {
+      req.body.harga = meterOrbuah * 35000;
+    } else {
+      console.log("Did not select paket");
+    }
+  } else {
+    console.log("Did not select durasi");
+  }
   try {
     const transaction = new Transaksi(req.body);
     await transaction.save();
-    console.log("success add data");
+    console.log("Success add new transaction");
     res.redirect("/transaction");
   } catch (error) {
     return res.render("error", { errorMessage: error.message });

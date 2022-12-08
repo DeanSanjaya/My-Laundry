@@ -18,6 +18,10 @@ const transaksiSchema = new mongoose.Schema(
       type: Number,
       //require: true,
     },
+    meterOrbuah: {
+      type: Number,
+      //require: true,
+    },
     harga: {
       type: Number,
       //require: true,

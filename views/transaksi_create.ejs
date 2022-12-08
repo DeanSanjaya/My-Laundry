@@ -36,19 +36,15 @@
               name="name"
             />
           </div>
-          <div class="col-lg-6 mt-3">
-            <label for="Berat" class="form-label">Berat :</label>
-            <input
-              type="text"
-              class="form-control"
-              placeholder="10 kg"
-              name="berat"
-            />
-          </div>
 
           <div class="col-lg-6 mt-3">
             <label for="Paket" class="form-label">Paket :</label>
-            <select class="form-select" name="paket">
+            <select
+              class="form-select"
+              name="paket"
+              id="paket"
+              onchange="checkOptgroupSelected(), getPaketVal(value), countHarga()"
+            >
               <option selected hidden>Pilih Paket</option>
               <optgroup label="Kiloan">
                 <option>Cuci Basah</option>
@@ -71,13 +67,34 @@
             <select
               class="form-select"
               name="durasi"
-              onchange="checkDurasi(value)"
+              onchange="checkDurasi(value), getDurasiVal(value), countHarga()"
             >
               <option selected hidden>Pilih Durasi</option>
               <option>6 jam</option>
               <option>1 hari</option>
               <option>2 hari</option>
             </select>
+          </div>
+          <div class="col-lg-6 mt-3" id="divBerat">
+            <label for="Berat" class="form-label">Berat :</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="10 kg"
+              name="berat"
+              onchange="getBeratVal(value), countHarga()"
+            />
+          </div>
+
+          <div class="col-lg-6 mt-3" id="divMeter" style="display: none">
+            <label for="MeterOrBuah" class="form-label">Meter/Buah :</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="1 meter/1 buah"
+              name="meterOrbuah"
+              onchange="getMeterOrBuahVal(value), countHarga()"
+            />
           </div>
           <div class="col-lg-6 mt-3">
             <label for="Waktu Pesan" class="form-label">Waktu Pesan :</label>
@@ -139,6 +156,31 @@
       crossorigin="anonymous"
     ></script>
     <script>
+      let durasiVal,
+        paketVal,
+        beratval,
+        meterOrbuahVal = "";
+
+      //Get durasi value
+      getDurasiVal = (value) => {
+        durasiVal = value;
+      };
+
+      //Get pakel value
+      getPaketVal = (value) => {
+        paketVal = value;
+      };
+
+      //Get berat value
+      getBeratVal = (value) => {
+        beratval = value;
+      };
+
+      //Get meter or buah value
+      getMeterOrBuahVal = (value) => {
+        meterOrbuahVal = value;
+      };
+
       //Get date now
       const dateNow = new Date();
       const dateFormat =
@@ -191,7 +233,6 @@
         const timeSubstringHour = parseInt(timeFormat.substring(-1, 2));
         const timeSubstringMinute = parseInt(timeFormat.substring(3));
         const durasi = timeSubstringHour + 6;
-        console.log(timeFormat);
         if (timeSubstringHour > 17 && timeSubstringMinute > 1) {
           return (
             "0" +
@@ -222,11 +263,13 @@
         }
       }
 
-      window.onload = function () {
+      //Default waktu dan tanggal pesan
+      window.onload = () => {
         document.getElementsByName("waktuPesan")[0].placeholder = timeFormat;
         document.getElementsByName("tglPesan")[0].placeholder = dateFormat;
       };
 
+      //Default waktu dan tanggal pengambilan
       function checkDurasi(value) {
         if (parseInt(value) == 6) {
           document.getElementsByName("waktuPengambilan")[0].placeholder =
@@ -238,6 +281,139 @@
             timeFormat;
           document.getElementsByName("tglPengambilan")[0].placeholder =
             checkDate(value);
+        }
+      }
+
+      //Check paket optgroup label
+      function checkOptgroupSelected() {
+        let selected = document.querySelector(
+          'select[name="paket"] option:checked'
+        ).parentElement.label;
+
+        //Change berat and meter
+        const divBerat = document.getElementById("divBerat");
+        const divMeter = document.getElementById("divMeter");
+
+        if (selected == "Satuan") {
+          divBerat.style.display = "none";
+          divMeter.style.display = "block";
+        } else {
+          divBerat.style.display = "block";
+          divMeter.style.display = "none";
+        }
+      }
+
+      //Count harga
+      function countHarga() {
+        durasi = parseInt(durasiVal);
+        paket = paketVal;
+        berat = parseInt(beratval);
+        meterOrbuah = parseInt(meterOrbuahVal);
+
+        if (durasi == 6) {
+          if (paket == "Cuci Basah") {
+            document.getElementsByName("harga")[0].placeholder =
+              "Rp. " + berat * 9000;
+          } else if (paket == "Cuci Kering") {
+            document.getElementsByName("harga")[0].placeholder =
+              "Rp. " + berat * 10000;
+          } else if (paket == "Cuci Kering Lipat") {
+            document.getElementsByName("harga")[0].placeholder =
+              "Rp. " + berat * 12000;
+          } else if (paket == "Cuci Kering Setrika") {
+            document.getElementsByName("harga")[0].placeholder =
+              "Rp. " + berat * 14000;
+          } else if (paket == "Setrika") {
+            document.getElementsByName("harga")[0].placeholder =
+              "Rp. " + berat * 11000;
+          } else if (paket == "Gorden Tipis") {
+            document.getElementsByName("harga")[0].placeholder =
+              "Rp. " + meterOrbuah * 11000;
+          } else if (paket == "Gorden Tebal") {
+            document.getElementsByName("harga")[0].placeholder =
+              "Rp. " + meterOrbuah * 16000;
+          } else if (paket == "Selimut") {
+            document.getElementsByName("harga")[0].placeholder =
+              "Rp. " + meterOrbuah * 40000;
+          } else if (paket == "Bed Cover") {
+            document.getElementsByName("harga")[0].placeholder =
+              "Rp. " + meterOrbuah * 50000;
+          } else if (paket == "Jas") {
+            document.getElementsByName("harga")[0].placeholder =
+              "Rp. " + meterOrbuah * 55000;
+          } else {
+            console.log("Did not choose anything");
+          }
+        } else if (durasi == 1) {
+          if (paket == "Cuci Basah") {
+            document.getElementsByName("harga")[0].placeholder =
+              "Rp. " + berat * 7000;
+          } else if (paket == "Cuci Kering") {
+            document.getElementsByName("harga")[0].placeholder =
+              "Rp. " + berat * 8000;
+          } else if (paket == "Cuci Kering Lipat") {
+            document.getElementsByName("harga")[0].placeholder =
+              "Rp. " + berat * 9500;
+          } else if (paket == "Cuci Kering Setrika") {
+            document.getElementsByName("harga")[0].placeholder =
+              "Rp. " + berat * 11000;
+          } else if (paket == "Setrika") {
+            document.getElementsByName("harga")[0].placeholder =
+              "Rp. " + berat * 9000;
+          } else if (paket == "Gorden Tipis") {
+            document.getElementsByName("harga")[0].placeholder =
+              "Rp. " + meterOrbuah * 9000;
+          } else if (paket == "Gorden Tebal") {
+            document.getElementsByName("harga")[0].placeholder =
+              "Rp. " + meterOrbuah * 14000;
+          } else if (paket == "Selimut") {
+            document.getElementsByName("harga")[0].placeholder =
+              "Rp. " + meterOrbuah * 30000;
+          } else if (paket == "Bed Cover") {
+            document.getElementsByName("harga")[0].placeholder =
+              "Rp. " + meterOrbuah * 40000;
+          } else if (paket == "Jas") {
+            document.getElementsByName("harga")[0].placeholder =
+              "Rp. " + meterOrbuah * 45000;
+          } else {
+            console.log("Did not choose anything");
+          }
+        } else if (durasi == 2) {
+          if (paket == "Cuci Basah") {
+            document.getElementsByName("harga")[0].placeholder =
+              "Rp. " + berat * 5000;
+          } else if (paket == "Cuci Kering") {
+            document.getElementsByName("harga")[0].placeholder =
+              "Rp. " + berat * 6000;
+          } else if (paket == "Cuci Kering Lipat") {
+            document.getElementsByName("harga")[0].placeholder =
+              "Rp. " + berat * 7000;
+          } else if (paket == "Cuci Kering Setrika") {
+            document.getElementsByName("harga")[0].placeholder =
+              "Rp. " + berat * 8500;
+          } else if (paket == "Setrika") {
+            document.getElementsByName("harga")[0].placeholder =
+              "Rp. " + berat * 7500;
+          } else if (paket == "Gorden Tipis") {
+            document.getElementsByName("harga")[0].placeholder =
+              "Rp. " + meterOrbuah * 7500;
+          } else if (paket == "Gorden Tebal") {
+            document.getElementsByName("harga")[0].placeholder =
+              "Rp. " + meterOrbuah * 12500;
+          } else if (paket == "Selimut") {
+            document.getElementsByName("harga")[0].placeholder =
+              "Rp. " + meterOrbuah * 20000;
+          } else if (paket == "Bed Cover") {
+            document.getElementsByName("harga")[0].placeholder =
+              "Rp. " + meterOrbuah * 30000;
+          } else if (paket == "Jas") {
+            document.getElementsByName("harga")[0].placeholder =
+              "Rp. " + meterOrbuah * 35000;
+          } else {
+            console.log("Did not select paket");
+          }
+        } else {
+          console.log("Did not select durasi");
         }
       }
     </script>
