@@ -24,8 +24,12 @@
 
     <!-- Awal Form-->
     <div class="container pt-5">
-      <h1 class="text-center mb-5">Input Transaksi</h1>
-      <form action="/transaction/add" method="post">
+      <h1 class="text-center mb-5">Edit Transaksi</h1>
+      <form
+        action="/transaction/edit/<%= item.id %>"
+        ?_method="PUT"
+        method="post"
+      >
         <div class="row">
           <div class="col-lg-6 mt-3">
             <label for="Nama" class="form-label">Nama :</label>

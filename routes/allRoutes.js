@@ -30,7 +30,7 @@ router.get(
 router.post(
   "/transaction/edit/:id",
   requireAuth,
-  allController.transaction_add
+  allController.transaction_edit
 );
 router.post(
   "/transaction/delete/:id",

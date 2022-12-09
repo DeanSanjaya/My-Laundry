@@ -90,7 +90,6 @@ function checkTime() {
   const timeSubstringHour = parseInt(timeFormat.substring(-1, 2));
   const timeSubstringMinute = parseInt(timeFormat.substring(3));
   const durasi = timeSubstringHour + 6;
-  console.log(timeFormat);
   if (timeSubstringHour > 17 && timeSubstringMinute > 1) {
     return (
       "0" + (durasi - 24).toString() + ":" + timeSubstringMinute.toString()
@@ -239,12 +238,37 @@ module.exports.transaction_add = async (req, res) => {
   }
 };
 
-module.exports.transaction_render_edit = (req, res) => {
-  res.redirect("/");
+module.exports.transaction_render_edit = async (req, res) => {
+  const item = await Transaksi.findById(req.params.id);
+  console.log("Hello");
+  res.render("transaksi_edit", {
+    title: "Transaction Edit Form",
+    item: item,
+  });
 };
 
-module.exports.transaction_edit = (req, res) => {
-  res.redirect("/");
+module.exports.transaction_edit = async (req, res) => {
+  const item = await Transaksi.findById(req.params.id);
+
+  item.name = req.body.name;
+  item.paket = req.body.paket;
+  item.durasi = req.body.durasi;
+  item.waktuPesan = req.body.waktuPesan;
+  item.tglPesan = req.body.tglPengambilan;
+  item.waktuPengambilan = req.body.waktuPengambilan;
+  item.tglPengambilan = req.body.tglPengambilan;
+  item.berat = parseInt(req.body.berat);
+  item.meterOrbuah = parseInt(req.body.meterOrbuah);
+  item.harga = parseInt(req.body.harga);
+
+  try {
+    const transaction = new Transaksi(item);
+    await transaction.save();
+    console.log("Success edit transaction");
+    res.redirect("/transaction");
+  } catch (error) {
+    return res.render("error", { errorMessage: error.message });
+  }
 };
 
 module.exports.transaction_delete = (req, res) => {
