@@ -1,11 +1,6 @@
 const { Router } = require("express");
 const allController = require("../controllers/allControllers");
-
-const exspress = require("express");
-const app = exspress();
-const cookieParser = require("cookie-parser");
 const { requireAuth, checkUser } = require("../middleware/authmiddleware");
-app.use(cookieParser());
 
 const router = Router();
 
@@ -38,12 +33,23 @@ router.post(
   allController.transaction_delete
 );
 
-router.get(
-  "/transaction/finished",
+router.post(
+  "/transaction/finished/:id",
   requireAuth,
-  allController.transaction_finished_get
+  allController.transaction_finished_post
 );
-router.get("/transaction/:id/edit", allController.transaction_render_edit);
-router.post("/transaction/:id/edit/post", allController.transaction_add);
+
+//transaction finished
+router.get(
+  "/transaction-finished/",
+  requireAuth,
+  allController.transaction_finished
+);
+
+router.post(
+  "/transaction-finished/redo/:id",
+  requireAuth,
+  allController.transaction_finished_redo
+);
 
 module.exports = router;

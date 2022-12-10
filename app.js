@@ -48,7 +48,7 @@ app.listen(3000, () => {
   console.log("Server is runnning on port 3000");
 });
 
-// login and signup
+// 404
 app.use((req, res) => {
   res.status(404).render("404", { title: "404" });
 });
