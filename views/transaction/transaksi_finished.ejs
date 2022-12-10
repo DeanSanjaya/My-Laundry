@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/transaksi.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <title>Transaksi</title>
+  </head>
+  <body>
+    <%- include("../partials/nav.ejs") %>
+
+    <!-- Awal Booking -->
+    <div class="container mt-5">
+      <h1 class="text-center mb-3">Transaksi</h1>
+      <a href="/transaction" class="btn btn-info rounded-pill me-3 mb-2"
+        >Works in Progress</a
+      >
+      <a href="/transaction-finished" class="btn btn-primary rounded-pill mb-2"
+        >Works Finished</a
+      >
+
+      <table class="table table-bordered">
+        <thead>
+          <tr class="table-info text-center">
+            <th style="width: 3%">No.</th>
+            <th style="width: 23%">Nama</th>
+            <th style="width: 20%">Jam, Tanggal Pesan</th>
+            <th style="width: 25%">Paket</th>
+            <th style="width: 10%">Aksi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% items.forEach((item)=> { %>
+          <tr>
+            <td class="count text-center"></td>
+            <td><%= item.name %></td>
+            <td><%= item.waktuPesan + ", " + item.tglPesan %></td>
+            <td><%= item.paket + ", " + item.durasi %></td>
+            <td class="text-center">
+              <form
+                action="/transaction-finished/redo/<%= item._id %>"
+                method="post"
+              >
+                <button type="submit" class="btn btn-warning rounded-pill me-1">
+                  redo
+                </button>
+              </form>
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+    <!-- Akhir Booking -->
+
+    <%- include("../partials/footer.ejs") %>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

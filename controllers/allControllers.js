@@ -1,5 +1,4 @@
 const Transaksi = require("../models/transaksi");
-const { requireAuth, checkUser } = require("../middleware/authmiddleware");
 
 //homepage
 module.exports.home = (req, res) => {
@@ -7,8 +6,6 @@ module.exports.home = (req, res) => {
     if (error) {
       console.log(error);
     }
-    let checkID = Transaksi.findById("638e4d7cbbd70a468d24796f");
-    console.log(checkID);
     res.render("index", { title: "Homepage", items: result });
   });
 };
@@ -17,18 +14,14 @@ module.exports.home_get = (req, res) => {
   res.redirect("/");
 };
 
-//search transaction
-// module.exports.track_get = (req, res) => {
-// };
-
 //transaction
 module.exports.transaction_get = (req, res) => {
-  Transaksi.find({}, function (error, result) {
+  Transaksi.find({ progress: false }, function (error, result) {
     if (error) {
       console.log(error);
       console.log("ERROR");
     }
-    res.render("transaksi_onProgress", {
+    res.render("transaction/transaksi_onProgress", {
       title: "Transaction",
       items: result,
     });
@@ -36,7 +29,7 @@ module.exports.transaction_get = (req, res) => {
 };
 
 module.exports.transaction_render_add = (req, res) => {
-  res.render("transaksi_create", { title: "Transaction Form" });
+  res.render("transaction/transaksi_create", { title: "Transaction Form" });
 };
 
 const dateNow = new Date();
@@ -234,14 +227,14 @@ module.exports.transaction_add = async (req, res) => {
     console.log("Success add new transaction");
     res.redirect("/transaction");
   } catch (error) {
-    return res.render("error", { errorMessage: error.message });
+    console.log(error);
   }
 };
 
 module.exports.transaction_render_edit = async (req, res) => {
   const item = await Transaksi.findById(req.params.id);
   console.log("Hello");
-  res.render("transaksi_edit", {
+  res.render("transaction/transaksi_edit", {
     title: "Transaction Edit Form",
     item: item,
   });
@@ -267,18 +260,54 @@ module.exports.transaction_edit = async (req, res) => {
     console.log("Success edit transaction");
     res.redirect("/transaction");
   } catch (error) {
-    return res.render("error", { errorMessage: error.message });
+    console.log(error);
   }
 };
 
-module.exports.transaction_delete = (req, res) => {
-  res.redirect("/");
+module.exports.transaction_delete = async (req, res) => {
+  await Transaksi.findByIdAndDelete(req.params.id);
+  console.log("Success delete transaction");
+  res.redirect("/transaction");
+};
+
+module.exports.transaction_finished_post = async (req, res) => {
+  const item = await Transaksi.findById(req.params.id);
+  item.progress = true;
+  try {
+    await item.save();
+    console.log("Transaction finished");
+    res.redirect("/transaction");
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+//transaction finished
+module.exports.transaction_finished = async (req, res) => {
+  Transaksi.find({ progress: true }, function (error, result) {
+    if (error) {
+      console.log(error);
+      console.log("ERROR");
+    }
+    res.render("transaction/transaksi_finished", {
+      title: "Transaction Finished",
+      items: result,
+    });
+  });
+};
+
+module.exports.transaction_finished_redo = async (req, res) => {
+  const item = await Transaksi.findById(req.params.id);
+  item.progress = false;
+  try {
+    await item.save();
+    console.log("Transaction finished");
+    res.redirect("/transaction-finished");
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 // app.get("/income", (req, res) => {
 //   res.render("income", requireAuth, { title: "Income" });
 // });
-
-module.exports.transaction_finished_get = (req, res) => {
-  res.render("transaksi_finished", { title: "Transaction Finished" });
-};
