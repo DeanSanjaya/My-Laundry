@@ -4,7 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- boostrap 5 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" class="css" />
+
+    <!-- aos -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     <title>Homepage</title>
   </head>
@@ -74,7 +79,7 @@
     <!-- our service -->
     <div class="container-fluid">
       <div class="container">
-        <div class="text text-center">
+        <div data-aos="zoom-out-down" class="text text-center">
           <h1>Our Service</h1>
           <h2 style="margin-bottom: 50px">Laundry Kiloan</h2>
         </div>
@@ -83,7 +88,7 @@
     <div class="container-fluid">
       <div class="container">
         <!-- Laundry Kiloan -->
-        <div class="row">
+        <div data-aos="fade-right" data-aos-duration="2000" class="row">
           <div class="card" style="width: 10.9rem; border: none">
             <img src="images/basah.png" class="card-img-top" alt="basah" />
             <div class="card-body">
@@ -121,9 +126,10 @@
           </div>
         </div>
         <!-- Laundry Kiloan -->
+
         <!-- Laundry Satuan -->
-        <h2 class="text-center" style="margin-bottom: 50px">Laundry Satuan</h2>
-        <div class="row">
+        <h2 data-aos="zoom-out-down" class="text-center" style="margin-bottom: 50px; margin-top: 100px;">Laundry Satuan</h2>
+        <div data-aos="fade-left" data-aos-duration="2000" class="row">
           <div class="card" style="width: 10.9rem; border: none">
             <img src="images/gorden-tipis.png" class="card-img-top" alt="gorden-tipis" />
             <div class="card-body">
@@ -132,7 +138,7 @@
             </div>
           </div>
           <div class="card offset-1" style="width: 10.9rem; border: none">
-            <img src="images/gorden-tebal.png" class="card-img-top" alt="gorden-tebal"/>
+            <img src="images/gorden-tebal.png" class="card-img-top" alt="gorden-tebal" />
             <div class="card-body">
               <p class="card-text text-center" style="margin-bottom: 0px">Gorden Tebal</p>
               <p class="card-text text-center">12500/meter</p>
@@ -148,7 +154,7 @@
           <div class="card offset-1" style="width: 10.9rem; border: none">
             <img src="images/bed-cover.svg" class="card-img-top" alt="bed-cover" />
             <div class="card-body">
-              <p class="card-text text-center" style="margin-bottom: 0px;">Bed Cover</p>
+              <p class="card-text text-center" style="margin-bottom: 0px">Bed Cover</p>
               <p class="card-text text-center">30000</p>
             </div>
           </div>
@@ -189,6 +195,14 @@
       </div>
     </div>
     <!-- Track Section -->
+
+    <!-- boostrap 5 -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- aos -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
   </body>
 </html>
