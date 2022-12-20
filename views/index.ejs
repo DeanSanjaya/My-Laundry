@@ -213,41 +213,35 @@
                 placeholder="Search"
                 aria-label="Search"
                 name="track"
+                id="track"
               />
-              <button class="btn btn-outline-success" type="submit">
+              <button
+                class="btn btn-outline-success"
+                type="button"
+                onclick="onClick()"
+              >
                 Search
               </button>
             </form>
+            <h1 id="tracking"></h1>
           </div>
         </div>
       </div>
-      <p><%= items %></p>
     </div>
     <!-- Track Section -->
 
     <%- include("./partials/footer.ejs") %>
-    <!-- <script>
-      const form = document.querySelector("form");
-      const searchValue = form.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        const track = form.track.value;
-
-        try {
-          const res = await fetch("/", {
-            method: "POST",
-            body: JSON.stringify({ id: track }),
-            headers: { "Content-Type": "application/json" },
-          });
-          const data = await res.json();
-          console.log(data);
-        } catch (error) {
-          console.log(error);
-        }
-        console.log(track);
-      });
-      //console.log(items.find({ id: track }));
-      //console.log(searchValue);
-    </script> -->
+    <script>
+      // 6393a5450185eba61e3b304b
+      var item = <%- JSON.stringify(items) %>;
+      trackInput = document.getElementById("track");
+      function onClick() {
+        const result = item.find(({ _id }) => _id === trackInput.value);
+        const resArray = Object.values(result)
+        console.log(resArray[1], resArray[2], resArray[11]);
+        document.getElementById("tracking").innerHTML = resArray[1] + resArray[2] + resArray[11]
+      }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

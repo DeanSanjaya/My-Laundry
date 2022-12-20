@@ -7,7 +7,6 @@ const router = Router();
 //homepage
 router.get("/", allController.home);
 router.get("/home", allController.home_get);
-// router.get("/", allController.track_get);
 
 //transaction
 router.get("/transaction", requireAuth, allController.transaction_get);
@@ -51,5 +50,8 @@ router.post(
   requireAuth,
   allController.transaction_finished_redo
 );
+
+//income
+router.get("/income", requireAuth, allController.income_get);
 
 module.exports = router;

@@ -1,3 +1,4 @@
+require("dotenv").config();
 const exspress = require("express");
 const mongoose = require("mongoose");
 const app = exspress();
@@ -16,8 +17,7 @@ app.use(cookieParser());
 app.set("view engine", "ejs");
 
 //connect to mongoDB
-const dbURI =
-  "mongodb+srv://admin1:admin123@mylaundry.4krhzfc.mongodb.net/myLaundry?retryWrites=true&w=majority";
+const dbURI = process.env.db_URI;
 const database = (module.exports = () => {
   const connectionParams = {
     useNewUrlParser: true,

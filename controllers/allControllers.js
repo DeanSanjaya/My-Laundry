@@ -308,6 +308,16 @@ module.exports.transaction_finished_redo = async (req, res) => {
   }
 };
 
-// app.get("/income", (req, res) => {
-//   res.render("income", requireAuth, { title: "Income" });
-// });
+//transaction finished
+module.exports.income_get = async (req, res) => {
+  Transaksi.find({ progress: true }, async function (error, result) {
+    if (error) {
+      console.log(error);
+      console.log("ERROR");
+    }
+    res.render("income/income", {
+      title: "Income",
+      items: result,
+    });
+  });
+};
