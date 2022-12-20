@@ -1,2 +1,3 @@
-*user
-*.env
+user
+.env
+.env.test
