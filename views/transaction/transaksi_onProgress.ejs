@@ -18,7 +18,7 @@
 
     <!-- Awal Booking -->
     <div class="container mt-5">
-      <h1 class="text-center mb-3">Transaksi</h1>
+      <h1 class="text-center mb-3" style="padding-top: 5rem">Transaksi</h1>
       <a href="/transaction" class="btn btn-primary rounded-pill me-3 mb-2"
         >Works in Progress</a
       >
@@ -50,11 +50,6 @@
             <td><%= item.paket + ", " + item.durasi %></td>
             <td class="d-inline-flex text-center">
               <a
-                href="transaksi_finish.html"
-                class="btn btn-info rounded-pill me-1 text-white"
-                >print</a
-              >
-              <a
                 href="/transaction/edit/<%= item._id %>"
                 class="btn btn-warning rounded-pill me-1 text-white"
                 >edit</a
@@ -76,6 +71,50 @@
                   done
                 </button>
               </form>
+              <button
+                href="#"
+                class="btn btn-info rounded-pill me-1"
+                data-bs-toggle="modal"
+                data-bs-target="#myModal"
+              >
+                print
+              </button>
+              <!-- The Modal -->
+              <div class="modal" id="myModal">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                      <h4 class="modal-title">MyLaundry</h4>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                      ></button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body text-start">
+                      <p>ID Pesanan: <%= item._id %></p>
+                      <p>Nama: <%= item.name %></p>
+                      <p>Paket: <%= item.paket %></p>
+                      <p>Berat: <%= item.berat %></p>
+                      <p>Meter/Buah: <%= item.meterOrbuah %></p>
+                      <p>Harga: <%= item.harga %></p>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-info"
+                        data-bs-dismiss="modal"
+                      >
+                        Print
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </td>
           </tr>
           <% }) %>

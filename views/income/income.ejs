@@ -29,11 +29,12 @@
       <table class="table table-bordered">
         <thead>
           <tr class="table-info text-center">
-            <th style="width: 3%">Nomor</th>
+            <th style="width: 3%">No.</th>
             <th style="width: 20%">Nama</th>
             <th style="width: 17%">Jam, Tanggal Pesan</th>
             <th style="width: 20%">Paket</th>
             <th style="width: 10%">Harga</th>
+            <th style="width: 10%">Aksi</th>
           </tr>
         </thead>
         <tbody>
@@ -44,6 +45,11 @@
             <td><%= item.waktuPesan + ", " + item.tglPesan %></td>
             <td><%= item.paket + ", " + item.durasi %></td>
             <td>Rp. <%= item.harga %></td>
+            <td class="text-center">
+              <button href="#" class="btn btn-info rounded-pill me-1">
+                detail
+              </button>
+            </td>
           </tr>
           <% }) %>
         </tbody>
