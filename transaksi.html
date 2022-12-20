@@ -4,13 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/transaksi.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <title>Transaksi</title>
   </head>
   <body>
     <!-- Awal Navbar-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow">
       <div class="container">
         <a class="navbar-brand" href="index.html">
           <img src="images/logo.png" width="40" class="me-2" />
@@ -21,19 +20,19 @@
         <div class="collapse navbar-collapse text-right" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link fw-semibold" style="color: black" href="#">Why Us</a>
+              <a class="nav-link fw-semibold" style="color: black" href="index.html#why">Why Us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link fw-semibold" style="color: black" href="#">Services</a>
+              <a class="nav-link fw-semibold" style="color: black" href="index.html#service">Services</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link fw-semibold" style="color: black" href="#">Reviews</a>
+              <a class="nav-link fw-semibold" style="color: black" href="index.html#track">Track</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link fw-semibold" style="color: black" href="#">Transaksi</a>
+              <a class="nav-link fw-semibold" style="color: black" href="transaksi.html">Transaksi</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link fw-semibold" style="color: black" href="#">Income</a>
+              <a class="nav-link fw-semibold" style="color: black" href="income.html">Income</a>
             </li>
           </ul>
           <ul class="navbar-nav ms-auto">
@@ -51,7 +50,7 @@
 
     <!-- Awal Booking -->
     <div class="container mt-5">
-        <h1 class="text-center mb-3">Transaksi</h1>
+        <h1 class="text-center mb-3" style="padding-top: 5rem;">Transaksi</h1>
         <a href="transaksi.html" class="btn btn-primary rounded-pill me-3 mb-2">Works in Progress</a>
         <a href="transaksi_finish.html" class="btn btn-info rounded-pill mb-2">Works Finished</a>
         <a href="transaksi_new.html" class="btn btn-success rounded-pill mb-2" style="float:right;">New Order</a>
@@ -72,10 +71,38 @@
                 <td>08.00, 10/10/2021</td>
                 <td>Paket cuci basah, 1 hari</td>
                 <td class="text-center">
-                    <a href="transaksi_finish.html" class="btn btn-danger rounded-pill me-1">delete</button>
-                    <a href="transaksi_finish.html" class="btn btn-warning rounded-pill me-1">edit</button>
-                    <a href="transaksi_finish.html" class="btn btn-success rounded-pill me-1">done</button>
-                    <a href="transaksi_finish.html" class="btn btn-info rounded-pill me-1">print</button>
+                    <a href="#" class="btn btn-danger rounded-pill me-1">delete</button>
+                    <a href="#" class="btn btn-warning rounded-pill me-1">edit</button>
+                    <a href="#" class="btn btn-success rounded-pill me-1">done</button>
+                    <a href="#" class="btn btn-info rounded-pill me-1" data-bs-toggle="modal" data-bs-target="#myModal">print</button>
+                      <!-- The Modal -->
+                      <div class="modal" id="myModal">
+                        <div class="modal-dialog modal-dialog-centered">
+                          <div class="modal-content">
+
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                              <h4 class="modal-title">MyLaundry</h4>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+
+                            <!-- Modal body -->
+                            <div class="modal-body text-start">
+                              <p>Nama:</p>
+                              <p>ID Pesanan:</p>
+                              <p>Paket:</p>
+                              <p>Berat:</p>
+                              <p>Harga:</p>
+                            </div>
+
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-info" data-bs-dismiss="modal">Print</button>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
                 </td>
             </tr>
             <tr>
@@ -84,10 +111,38 @@
                 <td>08.00, 10/10/2022</td>
                 <td>Paket cuci basah, 1 hari</td>
                 <td class="text-center">
-                    <a href="transaksi_finish.html" class="btn btn-danger rounded-pill me-1">delete</button>
-                    <a href="transaksi_finish.html" class="btn btn-warning rounded-pill me-1">edit</button>
-                    <a href="transaksi_finish.html" class="btn btn-success rounded-pill me-1">done</button>
-                    <a href="transaksi_finish.html" class="btn btn-info rounded-pill me-1">print</button>
+                    <a href="#" class="btn btn-danger rounded-pill me-1">delete</button>
+                    <a href="#" class="btn btn-warning rounded-pill me-1">edit</button>
+                    <a href="#" class="btn btn-success rounded-pill me-1">done</button>
+                    <a href="#" class="btn btn-info rounded-pill me-1" data-bs-toggle="modal" data-bs-target="#myModal">print</button>
+                      <!-- The Modal -->
+                      <div class="modal" id="myModal">
+                        <div class="modal-dialog modal-dialog-centered">
+                          <div class="modal-content">
+
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                              <h4 class="modal-title">MyLaundry</h4>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                              <p>Nama:</p>
+                              <p>ID Pesanan:</p>
+                              <p>Paket:</p>
+                              <p>Berat:</p>
+                              <p>Harga:</p>
+                            </div>
+
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-info" data-bs-dismiss="modal">Print</button>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
                 </td>
             </tr>
             <tr>
@@ -96,10 +151,38 @@
                 <td>08.00, 10/10/2023</td>
                 <td>Paket cuci basah, 1 hari</td>
                 <td class="text-center">
-                    <a href="transaksi_finish.html" class="btn btn-danger rounded-pill me-1">delete</button>
-                    <a href="transaksi_finish.html" class="btn btn-warning rounded-pill me-1">edit</button>
-                    <a href="transaksi_finish.html" class="btn btn-success rounded-pill me-1">done</button>
-                    <a href="transaksi_finish.html" class="btn btn-info rounded-pill me-1">print</button>
+                    <a href="#" class="btn btn-danger rounded-pill me-1">delete</button>
+                    <a href="#" class="btn btn-warning rounded-pill me-1">edit</button>
+                    <a href="#" class="btn btn-success rounded-pill me-1">done</button>
+                    <a href="#" class="btn btn-info rounded-pill me-1" data-bs-toggle="modal" data-bs-target="#myModal">print</button>
+                      <!-- The Modal -->
+                      <div class="modal" id="myModal">
+                        <div class="modal-dialog modal-dialog-centered">
+                          <div class="modal-content">
+
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                              <h4 class="modal-title">MyLaundry</h4>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                              <p>Nama:</p>
+                              <p>ID Pesanan:</p>
+                              <p>Paket:</p>
+                              <p>Berat:</p>
+                              <p>Harga:</p>
+                            </div>
+
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-info" data-bs-dismiss="modal">Print</button>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
                 </td>
             </tr>
             <tr>
@@ -108,10 +191,38 @@
                 <td>08.00, 10/10/2024</td>
                 <td>Paket cuci kering, 6 jam</td>
                 <td class="text-center">
-                    <a href="transaksi_finish.html" class="btn btn-danger rounded-pill me-1">delete</button>
-                    <a href="transaksi_finish.html" class="btn btn-warning rounded-pill me-1">edit</button>
-                    <a href="transaksi_finish.html" class="btn btn-success rounded-pill me-1">done</button>
-                    <a href="transaksi_finish.html" class="btn btn-info rounded-pill me-1">print</button>
+                    <a href="#" class="btn btn-danger rounded-pill me-1">delete</button>
+                    <a href="#" class="btn btn-warning rounded-pill me-1">edit</button>
+                    <a href="#" class="btn btn-success rounded-pill me-1">done</button>
+                    <a href="#" class="btn btn-info rounded-pill me-1" data-bs-toggle="modal" data-bs-target="#myModal">print</button>
+                      <!-- The Modal -->
+                      <div class="modal" id="myModal">
+                        <div class="modal-dialog modal-dialog-centered">
+                          <div class="modal-content">
+
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                              <h4 class="modal-title">MyLaundry</h4>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                              <p>Nama:</p>
+                              <p>ID Pesanan:</p>
+                              <p>Paket:</p>
+                              <p>Berat:</p>
+                              <p>Harga:</p>
+                            </div>
+
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-info" data-bs-dismiss="modal">Print</button>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
                 </td>
             </tr>
             <tr>
@@ -120,10 +231,38 @@
                 <td>08.00, 10/10/2025</td>
                 <td>Paket cuci kering, 6 jam</td>
                 <td class="text-center">
-                    <a href="transaksi_finish.html" class="btn btn-danger rounded-pill me-1">delete</button>
-                    <a href="transaksi_finish.html" class="btn btn-warning rounded-pill me-1">edit</button>
-                    <a href="transaksi_finish.html" class="btn btn-success rounded-pill me-1">done</button>
-                    <a href="transaksi_finish.html" class="btn btn-info rounded-pill me-1">print</button>
+                    <a href="#" class="btn btn-danger rounded-pill me-1">delete</button>
+                    <a href="#" class="btn btn-warning rounded-pill me-1">edit</button>
+                    <a href="#" class="btn btn-success rounded-pill me-1">done</button>
+                    <a href="#" class="btn btn-info rounded-pill me-1" data-bs-toggle="modal" data-bs-target="#myModal">print</button>
+                      <!-- The Modal -->
+                      <div class="modal" id="myModal">
+                        <div class="modal-dialog modal-dialog-centered">
+                          <div class="modal-content">
+
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                              <h4 class="modal-title">MyLaundry</h4>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                              <p>Nama:</p>
+                              <p>ID Pesanan:</p>
+                              <p>Paket:</p>
+                              <p>Berat:</p>
+                              <p>Harga:</p>
+                            </div>
+
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-info" data-bs-dismiss="modal">Print</button>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
                 </td>
             </tr>
             <tr>
@@ -132,10 +271,38 @@
                 <td>08.00, 10/10/2026</td>
                 <td>Paket cuci kering, 6 jam</td>
                 <td class="text-center">
-                    <a href="transaksi_finish.html" class="btn btn-danger rounded-pill me-1">delete</button>
-                    <a href="transaksi_finish.html" class="btn btn-warning rounded-pill me-1">edit</button>
-                    <a href="transaksi_finish.html" class="btn btn-success rounded-pill me-1">done</button>
-                    <a href="transaksi_finish.html" class="btn btn-info rounded-pill me-1">print</button>
+                    <a href="#" class="btn btn-danger rounded-pill me-1">delete</button>
+                    <a href="#" class="btn btn-warning rounded-pill me-1">edit</button>
+                    <a href="#" class="btn btn-success rounded-pill me-1">done</button>
+                    <a href="#" class="btn btn-info rounded-pill me-1" data-bs-toggle="modal" data-bs-target="#myModal">print</button>
+                      <!-- The Modal -->
+                      <div class="modal" id="myModal">
+                        <div class="modal-dialog modal-dialog-centered">
+                          <div class="modal-content">
+
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                              <h4 class="modal-title">MyLaundry</h4>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                              <p>Nama:</p>
+                              <p>ID Pesanan:</p>
+                              <p>Paket:</p>
+                              <p>Berat:</p>
+                              <p>Harga:</p>
+                            </div>
+
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-info" data-bs-dismiss="modal">Print</button>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
                 </td>
             </tr>
             <tr>
@@ -144,10 +311,38 @@
                 <td>08.00, 10/10/2027</td>
                 <td>Paket cuci kering + setrika, 2 hari</td>
                 <td class="text-center">
-                    <a href="transaksi_finish.html" class="btn btn-danger rounded-pill me-1">delete</button>
-                    <a href="transaksi_finish.html" class="btn btn-warning rounded-pill me-1">edit</button>
-                    <a href="transaksi_finish.html" class="btn btn-success rounded-pill me-1">done</button>
-                    <a href="transaksi_finish.html" class="btn btn-info rounded-pill me-1">print</button>
+                    <a href="#" class="btn btn-danger rounded-pill me-1">delete</button>
+                    <a href="#" class="btn btn-warning rounded-pill me-1">edit</button>
+                    <a href="#" class="btn btn-success rounded-pill me-1">done</button>
+                    <a href="#" class="btn btn-info rounded-pill me-1" data-bs-toggle="modal" data-bs-target="#myModal">print</button>
+                      <!-- The Modal -->
+                      <div class="modal" id="myModal">
+                        <div class="modal-dialog modal-dialog-centered">
+                          <div class="modal-content">
+
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                              <h4 class="modal-title">MyLaundry</h4>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                              <p>Nama:</p>
+                              <p>ID Pesanan:</p>
+                              <p>Paket:</p>
+                              <p>Berat:</p>
+                              <p>Harga:</p>
+                            </div>
+
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-info" data-bs-dismiss="modal">Print</button>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
                 </td>
             </tr>
             <tr>
@@ -156,10 +351,38 @@
                 <td>08.00, 10/10/2028</td>
                 <td>Paket cuci kering + setrika, 2 hari</td>
                 <td class="text-center">
-                    <a href="transaksi_finish.html" class="btn btn-danger rounded-pill me-1">delete</button>
-                    <a href="transaksi_finish.html" class="btn btn-warning rounded-pill me-1">edit</button>
-                    <a href="transaksi_finish.html" class="btn btn-success rounded-pill me-1">done</button>
-                    <a href="transaksi_finish.html" class="btn btn-info rounded-pill me-1">print</button>
+                    <a href="#" class="btn btn-danger rounded-pill me-1">delete</button>
+                    <a href="#" class="btn btn-warning rounded-pill me-1">edit</button>
+                    <a href="#" class="btn btn-success rounded-pill me-1">done</button>
+                    <a href="#" class="btn btn-info rounded-pill me-1" data-bs-toggle="modal" data-bs-target="#myModal">print</button>
+                      <!-- The Modal -->
+                      <div class="modal" id="myModal">
+                        <div class="modal-dialog modal-dialog-centered">
+                          <div class="modal-content">
+
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                              <h4 class="modal-title">MyLaundry</h4>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                              <p>Nama:</p>
+                              <p>ID Pesanan:</p>
+                              <p>Paket:</p>
+                              <p>Berat:</p>
+                              <p>Harga:</p>
+                            </div>
+
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-info" data-bs-dismiss="modal">Print</button>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
                 </td>
             </tr>
             <tr>
@@ -168,10 +391,38 @@
                 <td>08.00, 10/10/2029</td>
                 <td>Paket cuci kering + setrika, 2 hari</td>
                 <td class="text-center">
-                    <a href="transaksi_finish.html" class="btn btn-danger rounded-pill me-1">delete</button>
-                    <a href="transaksi_finish.html" class="btn btn-warning rounded-pill me-1">edit</button>
-                    <a href="transaksi_finish.html" class="btn btn-success rounded-pill me-1">done</button>
-                    <a href="transaksi_finish.html" class="btn btn-info rounded-pill me-1">print</button>
+                    <a href="#" class="btn btn-danger rounded-pill me-1">delete</button>
+                    <a href="#" class="btn btn-warning rounded-pill me-1">edit</button>
+                    <a href="#" class="btn btn-success rounded-pill me-1">done</button>
+                    <a href="#" class="btn btn-info rounded-pill me-1" data-bs-toggle="modal" data-bs-target="#myModal">print</button>
+                      <!-- The Modal -->
+                      <div class="modal" id="myModal">
+                        <div class="modal-dialog modal-dialog-centered">
+                          <div class="modal-content">
+
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                              <h4 class="modal-title">MyLaundry</h4>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                              <p>Nama:</p>
+                              <p>ID Pesanan:</p>
+                              <p>Paket:</p>
+                              <p>Berat:</p>
+                              <p>Harga:</p>
+                            </div>
+
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-info" data-bs-dismiss="modal">Print</button>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
                 </td>
             </tr>
             <tr>
@@ -180,10 +431,38 @@
                 <td>08.00, 10/10/2030</td>
                 <td>Paket satuan</td>
                 <td class="text-center">
-                    <a href="transaksi_finish.html" class="btn btn-danger rounded-pill me-1">delete</button>
-                    <a href="transaksi_finish.html" class="btn btn-warning rounded-pill me-1">edit</button>
-                    <a href="transaksi_finish.html" class="btn btn-success rounded-pill me-1">done</button>
-                    <a href="transaksi_finish.html" class="btn btn-info rounded-pill me-1">print</button>
+                    <a href="#" class="btn btn-danger rounded-pill me-1">delete</button>
+                    <a href="#" class="btn btn-warning rounded-pill me-1">edit</button>
+                    <a href="#" class="btn btn-success rounded-pill me-1">done</button>
+                    <a href="#" class="btn btn-info rounded-pill me-1" data-bs-toggle="modal" data-bs-target="#myModal">print</button>
+                      <!-- The Modal -->
+                      <div class="modal" id="myModal">
+                        <div class="modal-dialog modal-dialog-centered">
+                          <div class="modal-content">
+
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                              <h4 class="modal-title">MyLaundry</h4>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                              <p>Nama:</p>
+                              <p>ID Pesanan:</p>
+                              <p>Paket:</p>
+                              <p>Berat:</p>
+                              <p>Harga:</p>
+                            </div>
+
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-info" data-bs-dismiss="modal">Print</button>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
                 </td>
             </tr>
             </tbody>
@@ -192,9 +471,8 @@
         <!-- Akhir Booking -->
 
         <!-- Awal Footer-->
-        <div class="footer bg-info">
-            <div class="container">
-            </div>
+        <div class="footer py-2 bg-info">
+          <div class="container copyrights text-center" style="font-size: 15px; color: white">COPYRIGHT &copy; 2022 MyLaundry</div>
         </div>
         <!-- Akhir Footer-->
 
