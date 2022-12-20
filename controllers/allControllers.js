@@ -233,7 +233,6 @@ module.exports.transaction_add = async (req, res) => {
 
 module.exports.transaction_render_edit = async (req, res) => {
   const item = await Transaksi.findById(req.params.id);
-  console.log("Hello");
   res.render("transaction/transaksi_edit", {
     title: "Transaction Edit Form",
     item: item,
@@ -308,7 +307,7 @@ module.exports.transaction_finished_redo = async (req, res) => {
   }
 };
 
-//transaction finished
+//income
 module.exports.income_get = async (req, res) => {
   Transaksi.find({ progress: true }, async function (error, result) {
     if (error) {

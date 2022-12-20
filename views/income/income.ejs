@@ -11,9 +11,9 @@
       integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
       crossorigin="anonymous"
     />
-    <title>Income</title>
+    <title>My Laundry | <%= title %></title>
   </head>
-  <body>
+  <body class="d-flex flex-column min-vh-100">
     <%- include("../partials/nav.ejs") %>
 
     <!-- Awal Booking -->
@@ -34,7 +34,7 @@
             <th style="width: 17%">Jam, Tanggal Pesan</th>
             <th style="width: 20%">Paket</th>
             <th style="width: 10%">Harga</th>
-            <th style="width: 10%">Aksi</th>
+            <!-- <th style="width: 10%">Aksi</th> -->
           </tr>
         </thead>
         <tbody>
@@ -45,11 +45,11 @@
             <td><%= item.waktuPesan + ", " + item.tglPesan %></td>
             <td><%= item.paket + ", " + item.durasi %></td>
             <td>Rp. <%= item.harga %></td>
-            <td class="text-center">
+            <!-- <td class="text-center">
               <button href="#" class="btn btn-info rounded-pill me-1">
                 detail
               </button>
-            </td>
+            </td> -->
           </tr>
           <% }) %>
         </tbody>

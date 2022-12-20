@@ -31,7 +31,6 @@ router.post(
   requireAuth,
   allController.transaction_delete
 );
-
 router.post(
   "/transaction/finished/:id",
   requireAuth,
@@ -44,7 +43,6 @@ router.get(
   requireAuth,
   allController.transaction_finished
 );
-
 router.post(
   "/transaction-finished/redo/:id",
   requireAuth,

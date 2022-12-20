@@ -13,18 +13,18 @@
     />
     <title>My Laundry | <%= title %></title>
   </head>
-  <body>
+  <body class="d-flex flex-column min-vh-100">
     <%- include("../partials/nav.ejs") %>
 
     <!-- Awal Back-->
     <div class="previous" style="padding-top: 6rem">
-      <a href="/transaksi" class="kembali text-white ml-5">&#8249; BACK</a>
+      <a href="/transaction" class="kembali text-white ml-5">&#8249; BACK</a>
     </div>
     <!--Akhir Back-->
 
     <!-- Awal Form-->
     <div class="container pt-5">
-      <h1 class="text-center mb-5">Input Transaksi</h1>
+      <h1 class="text-center mb-5">Input Transaction</h1>
       <form action="/transaction/add" method="post">
         <div class="row">
           <div class="col-lg-6 mt-3">
