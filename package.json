@@ -4,7 +4,8 @@
   "description": "My Laundry Website",
   "main": "app.js",
   "scripts": {
-    "start": ".\\node_modules\\.bin\\nodemon app.js"
+    "start": ".\\node_modules\\.bin\\nodemon app.js",
+    "build": "node app.js"
   },
   "repository": {
     "type": "git",
