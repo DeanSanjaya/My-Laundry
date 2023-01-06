@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "My Laundry Website",
   "main": "app.js",
+  "engines": {
+    "node": "14.x"
+  },
   "scripts": {
-    "start": ".\\node_modules\\.bin\\nodemon app.js",
+    "start": "node app.js",
     "build": "node app.js"
   },
   "repository": {
