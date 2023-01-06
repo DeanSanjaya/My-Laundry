@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "node app.js",
-    "build": "node app.js"
+    "vercel-build": "yarn global add node-gyp"
   },
   "repository": {
     "type": "git",
