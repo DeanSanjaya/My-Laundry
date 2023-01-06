@@ -17,7 +17,7 @@ app.use(cookieParser());
 app.set("view engine", "ejs");
 
 //connect to mongoDB
-const dbURI = process.env.db_URI;
+const dbURI = process.env.MONGODB_URI;
 const database = (module.exports = () => {
   const connectionParams = {
     useNewUrlParser: true,
